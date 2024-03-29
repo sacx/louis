@@ -41,7 +41,7 @@ func ListenBPF(evChan chan Event, ctx Ctx) {
 
             // Cast types
             struct sock *sk = sock->sk;
-            struct inet_sock *inet = inet_sk(sk);
+            struct inet_sock *inet = (struct inet_sock *)sk;
 
             // Working values. You *need* to initialize them to give them "life" on the stack and use them afterward
             u32 addr = 0;
